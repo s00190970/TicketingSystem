@@ -16,12 +16,14 @@ namespace API.Models
 {
     public class PrioritiesController : ApiController
     {
-        private IPriorityRepository repository;
+        private readonly IPriorityRepository repository;
 
         public PrioritiesController(IPriorityRepository repo)
         {
             repository = repo;
         }
+
+        public PrioritiesController() { }
 
         // GET: api/Priorities
         public List<Priority> GetPriorities()
