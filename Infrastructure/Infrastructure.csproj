@@ -160,6 +160,8 @@
     <Compile Include="Entities\Ticket.cs" />
     <Compile Include="Entities\TicketProperty.cs" />
     <Compile Include="Entities\TicketType.cs" />
+    <Compile Include="IRepositories\IServiceTypeRepository.cs" />
+    <Compile Include="IRepositories\IStatusRepository.cs" />
     <Compile Include="IRepositories\ITicketOptionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IRepositories\IPriorityRepository.cs" />
