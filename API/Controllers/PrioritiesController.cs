@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Core.IRepositories;
 using Infrastructure.Context;
 using Infrastructure.Entities;
 using Infrastructure.Repositories;
@@ -18,17 +19,20 @@ namespace API.Models
     {
         private readonly IPriorityRepository repository;
 
+        public PrioritiesController()
+        {
+            repository = new PriorityRepository(); 
+        }
+
         public PrioritiesController(IPriorityRepository repo)
         {
             repository = repo;
         }
 
-        public PrioritiesController() { }
-
         // GET: api/Priorities
         public List<Priority> GetPriorities()
         {
-            return repository.GetPriorities();
+            return repository.GetAll();
         }
 
         // PUT: api/Priorities

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Unity;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,15 +12,24 @@ namespace Core.IRepositories
 {
     public class PriorityRepository : IPriorityRepository
     {
-        [Dependency]
-        public TicketDbContext context { get; set; }
+        public TicketDbContext context;
+
+        public PriorityRepository()
+        {
+            context = new TicketDbContext();
+        }
+
+        public PriorityRepository(TicketDbContext context)
+        {
+            this.context = context;
+        }
 
         public Priority Add(Priority priority)
         {
             return context.Priorities.Add(priority);
         }
 
-        public List<Priority> GetPriorities()
+        public List<Priority> GetAll()
         {
             return context.Priorities.ToList();
         }

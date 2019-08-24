@@ -9,7 +9,7 @@ namespace Infrastructure.Repositories
 {
     public interface IPriorityRepository : IDisposable
     {
-        List<Priority> GetPriorities();
+        List<Priority> GetAll();
         Priority Add(Priority priority);
         void Save();
     }
