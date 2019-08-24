@@ -1,5 +1,4 @@
-﻿using Infrastructure.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.IRepositories
 {
-    public interface IPriorityRepository : ITicketOptionRepository<Priority>
+    public interface ITicketOptionRepository<T> : IDisposable
     {
-        
+        List<T> GetAll();
+        T Add(T priority);
+        void Save();
     }
 }

@@ -8,31 +8,31 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Core.IRepositories;
+using Core.Repositories;
 using Infrastructure.Context;
 using Infrastructure.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.IRepositories;
 
-namespace API.Models
+namespace API.Controllers
 {
     public class PrioritiesController : ApiController
     {
-        private readonly IPriorityRepository repository;
+        private readonly IPriorityRepository _repository;
 
         public PrioritiesController()
         {
-            repository = new PriorityRepository(); 
+            _repository = new PriorityRepository(); 
         }
 
         public PrioritiesController(IPriorityRepository repo)
         {
-            repository = repo;
+            _repository = repo;
         }
 
         // GET: api/Priorities
         public List<Priority> GetPriorities()
         {
-            return repository.GetAll();
+            return _repository.GetAll();
         }
 
         // PUT: api/Priorities
@@ -44,8 +44,8 @@ namespace API.Models
                 return BadRequest(ModelState);
             }
 
-            repository.Add(priority);
-            repository.Save();
+            _repository.Add(priority);
+            _repository.Save();
 
             return CreatedAtRoute("DefaultApi", new { id = priority.Id }, priority);
         }
@@ -54,7 +54,7 @@ namespace API.Models
         {
             if (disposing)
             {
-                repository.Dispose();
+                _repository.Dispose();
             }
             base.Dispose(disposing);
         }

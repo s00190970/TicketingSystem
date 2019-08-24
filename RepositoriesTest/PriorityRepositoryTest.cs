@@ -1,8 +1,8 @@
 ﻿using API.Models;
-using Core.IRepositories;
+using Core.Repositories;
 using Infrastructure.Context;
 using Infrastructure.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.IRepositories;
 using Moq;
 using NUnit.Framework;
 using System;

@@ -1,6 +1,6 @@
 ﻿using Infrastructure.Context;
 using Infrastructure.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.IRepositories
+namespace Core.Repositories
 {
     public class PriorityRepository : IPriorityRepository
     {
